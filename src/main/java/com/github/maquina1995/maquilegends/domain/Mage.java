@@ -1,5 +1,8 @@
 package com.github.maquina1995.maquilegends.domain;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Mage extends GameCharacter {
 
 	public Mage(String name) {

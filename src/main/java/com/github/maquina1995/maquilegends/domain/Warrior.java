@@ -1,5 +1,8 @@
 package com.github.maquina1995.maquilegends.domain;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Warrior extends GameCharacter {
 
 	public Warrior(String name) {
