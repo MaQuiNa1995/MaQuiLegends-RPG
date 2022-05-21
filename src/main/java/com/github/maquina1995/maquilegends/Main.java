@@ -1,24 +1,28 @@
 package com.github.maquina1995.maquilegends;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
-import com.github.maquina1995.maquilegends.service.GameMenuServiceImpl;
+import com.github.maquina1995.maquilegends.service.MenuService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @SpringBootApplication
 public class Main implements CommandLineRunner {
 
-	@Autowired
-	private GameMenuServiceImpl gameMenuServiceImpl;
+	private final MenuService menuService;
 
 	public static void main(String... args) {
-		SpringApplication.run(Main.class);
+		new SpringApplicationBuilder(Main.class).web(WebApplicationType.NONE)
+				.run(args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		gameMenuServiceImpl.showIntro();
+		menuService.showIntro();
+		menuService.showIngame();
 	}
 }
